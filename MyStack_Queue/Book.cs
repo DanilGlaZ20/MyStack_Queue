@@ -1,4 +1,5 @@
-﻿using System.Net.Cache;
+﻿using System;
+using System.Net.Cache;
 
 namespace MyStack_Queue
 {
@@ -13,6 +14,10 @@ namespace MyStack_Queue
             this.Year = year;
 
         }
-        
+
+        public String Print()
+        {
+            return Name + " " + Year;
+        }
     }
 }
