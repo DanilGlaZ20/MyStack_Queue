@@ -6,18 +6,18 @@ using System.Reflection;
 
 namespace MyStack_Queue
 {
-    public class Stack<T> : IEnumerable<T>
+    public class MyStack<T> : IEnumerable<T>
     {
         private T[] items; //эл стека
         private int count; //кол-во элементов в массиве
         private const int n = 10;
 
-        public Stack() //конструктор создает массив items
+        public MyStack() //конструктор создает массив items
         {
             items = new T[n];
         }
 
-        public Stack(int length) //для самостоятельного установления длины массива
+        public MyStack(int length) //для самостоятельного установления длины массива
         {
             items = new T[length];
         }
@@ -51,6 +51,15 @@ namespace MyStack_Queue
         {
             return items[count - 1];
         }
+         public IEnumerator<T> GetEnumerator()
+                {
+                    for (int i = count - 1; i >= 0; i--)
+                    {
+                        yield return this.items[i];
+                    }
+                }
+        
+                IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
         private void Resize(int max) //увеличить стек
         {
@@ -62,15 +71,7 @@ namespace MyStack_Queue
         }
 
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
+        
     }
 }
 

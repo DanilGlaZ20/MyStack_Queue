@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 
 namespace MyStack_Queue
 {
@@ -7,22 +9,30 @@ namespace MyStack_Queue
     {
         static void Main(string[] args)
         {
-            Stack < Book > st= new Stack<Book>();
-            int n = Convert.ToInt16(Console.ReadLine());
+            int n=Convert.ToInt16(Console.ReadLine());
+            var stack= new MyStack<Book>();
             for (int i = 0; i < n; i++)
             {
-                string input = Convert.ToString(Console.ReadLine());
-                st.Push(new Book(Convert.ToString(Convert.ToString(input[0])),Convert.ToInt16(input[1])));
-                    
+                Console.Write("Введите название книги:");
+                String name = Convert.ToString(Console.ReadLine());
+                Console.Write("  Введите год написания книги книги: ");
+                int year = Convert.ToInt16(Console.ReadLine());
+                var b = new Book(name, year);
+                stack.Push(b);
+            }
+            
+            Console.WriteLine("Книги в коробке:");
+            foreach (var b in stack)
+            {
+                Console.WriteLine(  b.Name+" "+b.Year);
             }
 
-            foreach (var p in st)
-            {
-                Console.WriteLine(p);
-            }
             
             
-            
+                
+
         }
+        
+        
     }
 }
