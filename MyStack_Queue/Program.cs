@@ -11,6 +11,7 @@ namespace MyStack_Queue
         {
             int n=Convert.ToInt16(Console.ReadLine());
             var stack= new MyStack<Book>();
+            var queue= new MyQueue<Book>();
             for (int i = 0; i < n; i++)
             {
                 Console.Write("Введите название книги:");
@@ -26,7 +27,13 @@ namespace MyStack_Queue
             {
                 Console.WriteLine(  b.Name+" "+b.Year);
             }
-
+            
+            
+            Console.WriteLine("Книги на полке:");
+            foreach (var b in queue)
+            {
+                Console.WriteLine(  b.Name+" "+b.Year);
+            }
             
             
                 
