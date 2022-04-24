@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
 
 namespace MyStack_Queue
 {
-    public class Stack<T> : IAbstractStack<T>
+    public class Stack<T> : IEnumerable<T>
     {
         private T[] items; //эл стека
         private int count; //кол-во элементов в массиве
@@ -30,43 +32,46 @@ namespace MyStack_Queue
             get { return count; }
         }
 
-        public void Push(T num)//положить
+        public void Push(T num) //положить
         {
             if (count == items.Length) Resize(items.Length + 10);
 
             items[count++] = num;
         }
 
-        public void Pop()//взять
+        public void Pop() //взять
         {
             if (IsEmpty) throw new InvalidOperationException("Стек пуст");
             T num = items[--count];
             items[count] = default;
-             
+
         }
 
-        public T Peek()//подсмотреть
+        public T Peek() //подсмотреть
         {
             return items[count - 1];
         }
 
-        private void Resize(int max)
+        private void Resize(int max) //увеличить стек
         {
+
             T[] tempItems = new T[max];
             for (int i = 0; i < count; i++) tempItems[i] = items[i];
             items = tempItems;
-            
+
         }
 
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
 
-
-
-
-    }
-
-    public interface IAbstractStack<T>
-    {
-
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }
+
+    
