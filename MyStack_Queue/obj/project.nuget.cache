@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "aVW/g/Vbl/EF11UaKfqR2FU35zhMBZ5S2wNw4Y2DRHRki1bBEu5o7mbvcCjEIXv76ybZW1enb9KP6dO4oR+frA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\79777\\RiderProjects\\всем папкам папка\\Stack\\Data structures\\MyStack_Queue\\MyStack_Queue\\MyStack_Queue.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\79777\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
