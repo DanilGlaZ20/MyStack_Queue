@@ -8,6 +8,7 @@ namespace MyStack_Queue
     {
         private T[] items;//эл очереди
         private int count;//кол-во элементов 
+        
         private const int n = 10;
         private int Front=-1;//голова
         private int Rear = -1;//хвост
@@ -35,18 +36,16 @@ namespace MyStack_Queue
         {
             if (count == items.Length) Resize(items.Length + 10);
             items[++Rear] = num;
+            count++;
         }
 
         public T Dequeue()
         {
-            T value = items[++Front];
-            
-            if(Front==Rear)
-            { 
-                Front=-1;
-                Rear = -1;
-            }
-
+            T value = items[0];
+            items[0] = default(T);
+            for (int i = 0; i < count - 1; i++) items[i] = items[i + 1];
+            count--;
+            items[count] = default(T);
             return value;
         }
         private void Resize(int max) //увеличить стек
